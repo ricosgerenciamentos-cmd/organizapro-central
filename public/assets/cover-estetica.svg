@@ -1,0 +1,10 @@
+<svg width="900" height="620" viewBox="0 0 900 620" fill="none" xmlns="http://www.w3.org/2000/svg">
+<defs><linearGradient id="g" x1="0" y1="0" x2="900" y2="620"><stop stop-color="#FFF1DC"/><stop offset=".5" stop-color="#FFE0F0"/><stop offset="1" stop-color="#0E67D8"/></linearGradient></defs>
+<rect width="900" height="620" rx="34" fill="url(#g)"/><circle cx="710" cy="145" r="175" fill="#fff" opacity=".55"/><circle cx="148" cy="508" r="150" fill="#fff" opacity=".4"/>
+<text x="62" y="105" font-family="Arial Black, Montserrat, Arial" font-size="34" fill="#0A2B57">MÉTODO</text>
+<text x="62" y="205" font-family="Arial Black, Montserrat, Arial" font-size="76" fill="#0A2B57">ESTÉTICA</text>
+<text x="62" y="270" font-family="Arial Black, Montserrat, Arial" font-size="52" fill="#0B63E6">PROFISSIONAL</text>
+<text x="64" y="332" font-family="Inter, Arial" font-size="28" font-weight="700" fill="#516074">Presença • Atendimento • Rotina</text>
+<rect x="64" y="405" width="300" height="88" rx="18" fill="#fff" opacity=".8"/><text x="94" y="458" font-family="Inter, Arial" font-size="27" font-weight="800" fill="#0A2B57">Organize seu serviço</text>
+<path d="M612 330c92-34 126-122 95-177-43 80-126 92-155 168-18 46 12 92 68 97 12-26 10-56-8-88z" fill="#0B63E6" opacity=".82"/><path d="M684 192c-57 89-80 151-65 230" stroke="#fff" stroke-width="8" stroke-linecap="round" opacity=".75"/>
+</svg>

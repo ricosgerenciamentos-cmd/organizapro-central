@@ -1,0 +1,10 @@
+<svg width="900" height="620" viewBox="0 0 900 620" fill="none" xmlns="http://www.w3.org/2000/svg">
+<defs><linearGradient id="g" x1="0" y1="0" x2="900" y2="620"><stop stop-color="#06150A"/><stop offset=".55" stop-color="#176C2E"/><stop offset="1" stop-color="#B5FF62"/></linearGradient></defs>
+<rect width="900" height="620" rx="34" fill="url(#g)"/><path d="M0 434C178 350 319 422 506 338C660 269 749 180 900 198V620H0V434Z" fill="#000" opacity=".4"/>
+<text x="60" y="92" font-family="Arial Black, Montserrat, Arial" font-size="34" fill="#B5FF62">MÉTODO</text>
+<text x="60" y="181" font-family="Arial Black, Montserrat, Arial" font-size="70" fill="#fff">ALIMENTAÇÃO</text>
+<text x="60" y="248" font-family="Arial Black, Montserrat, Arial" font-size="56" fill="#B5FF62">INTELIGENTE</text>
+<text x="62" y="314" font-family="Inter, Arial" font-size="28" font-weight="700" fill="#fff">Rotina • Cardápio • Organização</text>
+<ellipse cx="640" cy="412" rx="195" ry="95" fill="#111" opacity=".68"/><ellipse cx="640" cy="392" rx="170" ry="70" fill="#fff" opacity=".95"/><circle cx="586" cy="382" r="38" fill="#FF7A1A"/><circle cx="652" cy="385" r="45" fill="#76C942"/><circle cx="718" cy="382" r="34" fill="#F6C85F"/><path d="M515 326c45-78 96-92 150-88 50 4 86 41 124 79" stroke="#B5FF62" stroke-width="12" stroke-linecap="round" opacity=".75"/>
+<rect x="62" y="399" width="348" height="90" rx="18" fill="#07150B" opacity=".62"/><text x="92" y="453" font-family="Inter, Arial" font-size="26" font-weight="800" fill="#fff">Pequenas escolhas, mais controle</text>
+</svg>

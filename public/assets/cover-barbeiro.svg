@@ -1,0 +1,12 @@
+<svg width="900" height="620" viewBox="0 0 900 620" fill="none" xmlns="http://www.w3.org/2000/svg">
+<defs><linearGradient id="g" x1="0" y1="0" x2="900" y2="620"><stop stop-color="#070707"/><stop offset=".52" stop-color="#1C130A"/><stop offset="1" stop-color="#D68B16"/></linearGradient><radialGradient id="r" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(688 78) rotate(115) scale(540 330)"><stop stop-color="#FFBE35" stop-opacity=".75"/><stop offset="1" stop-color="#FFBE35" stop-opacity="0"/></radialGradient></defs>
+<rect width="900" height="620" rx="34" fill="url(#g)"/><rect width="900" height="620" rx="34" fill="url(#r)"/>
+<path d="M0 474C159 377 330 448 484 373C646 294 715 166 900 208V620H0V474Z" fill="#000" opacity=".38"/>
+<text x="62" y="96" font-family="Arial Black, Montserrat, Arial" font-size="34" fill="#FFCB48">MÉTODO</text>
+<text x="62" y="194" font-family="Arial Black, Montserrat, Arial" font-size="86" fill="#fff">BARBEIRO</text>
+<text x="66" y="264" font-family="Arial Black, Montserrat, Arial" font-size="56" fill="#FFCB48">PROFISSIONAL</text>
+<text x="66" y="326" font-family="Inter, Arial" font-size="30" font-weight="700" fill="#fff">Atendimento • Técnica • Divulgação</text>
+<rect x="66" y="392" width="245" height="118" rx="18" fill="#000" opacity=".55"/><text x="96" y="440" font-family="Inter, Arial" font-size="24" font-weight="800" fill="#fff">10 módulos</text><text x="96" y="478" font-family="Inter, Arial" font-size="22" fill="#FFCB48">+ 3 bônus</text>
+<rect x="342" y="392" width="245" height="118" rx="18" fill="#000" opacity=".55"/><text x="372" y="440" font-family="Inter, Arial" font-size="24" font-weight="800" fill="#fff">Acesso digital</text><text x="372" y="478" font-family="Inter, Arial" font-size="22" fill="#FFCB48">Entrega online</text>
+<path d="M702 347l-35 35 35 35 35-35-35-35zm-90 90l-34 34m158-158l34-34" stroke="#fff" stroke-width="20" stroke-linecap="round"/><path d="M648 327c-38-36-86-20-104 10 31 34 66 28 104-10z" fill="#FFCB48" opacity=".9"/>
+</svg>
