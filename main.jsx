@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import './style.css';
 
@@ -181,6 +181,189 @@ function buyMethod(method) {
       qty: 1
     }
   ]);
+}
+
+
+const promoSlides = [
+  {
+    eyebrow: 'OrganizaPro Métodos',
+    title: 'Aprenda, aplique e venda mais com métodos práticos.',
+    text: 'Materiais digitais com módulos, bônus e aplicação direta para transformar conhecimento em ação no seu negócio.',
+    cta: 'Ver ofertas de métodos',
+    theme: 'blue',
+    highlight: '72% OFF',
+    image: '/barbearia.png'
+  },
+  {
+    eyebrow: 'Oferta em destaque',
+    title: 'Comece pelo Método Barbeiro Profissional.',
+    text: 'Atendimento, técnica, divulgação, organização e fidelização em um passo a passo direto ao ponto.',
+    cta: 'Comprar por R$ 27,00',
+    theme: 'dark',
+    highlight: 'Mais vendido',
+    image: '/barbearia.png'
+  },
+  {
+    eyebrow: 'Alta procura',
+    title: 'Assistência técnica com processo, preço e atendimento.',
+    text: 'Aprenda a organizar bancada, diagnóstico, ferramentas, serviços e crescimento da assistência técnica.',
+    cta: 'Conhecer método',
+    theme: 'tech',
+    highlight: 'Acesso digital',
+    image: '/assistencia-celular.png'
+  }
+];
+
+const methodQuickCards = [
+  { title: 'Métodos em destaque', text: 'Os mais procurados da OrganizaPro.', img: '/barbearia.png', cta: 'Ver métodos' },
+  { title: 'Sua busca', text: 'Encontre o método ideal para seu momento.', icon: '🔎', cta: 'Explorar' },
+  { title: 'Também te interessa', text: 'Materiais que complementam sua evolução.', img: '/assistencia-celular.png', cta: 'Ver opções' },
+  { title: 'Ofertas atuais', text: 'Métodos digitais com condição de lançamento.', icon: '🏷️', cta: 'Ver ofertas' },
+  { title: 'Menos de R$100', text: 'Soluções acessíveis para começar agora.', icon: '💸', cta: 'Conferir' },
+  { title: 'Mais vendidos', text: 'Os métodos com maior destaque na central.', icon: '🛍️', cta: 'Ver mais' }
+];
+
+function MarketHeader({ active = 'metodos' }) {
+  const [open, setOpen] = useState(false);
+  const nav = [
+    ['categorias', '☰ Categorias', '#categorias'],
+    ['ofertas', 'Ofertas', '#ofertas'],
+    ['metodos', 'Métodos', '/metodos'],
+    ['servicos', 'Serviços', '/servicos'],
+    ['ferramentas', 'Ferramentas', '/ferramentas'],
+    ['produtos', 'Produtos', '/produtos'],
+    ['contato', 'Contato', '/contato']
+  ];
+
+  return <>
+    <div className="marketTopLine">✦ Soluções práticas para fazer seu negócio crescer com organização.</div>
+    <header className="marketHeader">
+      <div className="marketHeaderMain">
+        <a className="marketBrand" href="/" aria-label="OrganizaPro início">
+          <img src="/organizapro-logo.png" alt="OrganizaPro" />
+        </a>
+
+        <label className="marketSearch" aria-label="Buscar na OrganizaPro">
+          <span>⌕</span>
+          <input type="search" placeholder="Buscar métodos, serviços, ferramentas e produtos..." />
+        </label>
+
+        <div className="marketActions">
+          <a href={wa('Olá, quero acessar minha conta na OrganizaPro.')} target="_blank" rel="noopener"><span>♙</span><b>Minha conta</b><small>Entrar</small></a>
+          <a href="/produtos"><span>♡</span><b>Favoritos</b><small>Lista</small></a>
+          <a href="/checkout"><span>🛒</span><b>Carrinho</b><small>Itens</small></a>
+          <a className="marketTalk" href={wa('Olá, vim pelo site da OrganizaPro e quero saber qual método combina com meu negócio.')} target="_blank" rel="noopener">◉ Falar com a OrganizaPro</a>
+        </div>
+
+        <button className="marketMenu" type="button" onClick={() => setOpen(!open)} aria-label="Abrir menu">{open ? '×' : '☰'}</button>
+      </div>
+
+      <nav className={open ? 'marketNav open' : 'marketNav'} aria-label="Navegação estilo marketplace">
+        {nav.map(([key, label, href]) => <a key={key} href={href} className={active === key ? 'active' : ''} onClick={() => setOpen(false)}>{label}</a>)}
+      </nav>
+    </header>
+  </>;
+}
+
+function MethodsPromoHero() {
+  const [current, setCurrent] = useState(0);
+  const slide = promoSlides[current];
+
+  useEffect(() => {
+    const timer = setInterval(() => setCurrent(prev => (prev + 1) % promoSlides.length), 5200);
+    return () => clearInterval(timer);
+  }, []);
+
+  const go = (direction) => setCurrent(prev => (prev + direction + promoSlides.length) % promoSlides.length);
+
+  return <section className={`methodsMarketHero ${slide.theme}`}>
+    <button className="heroNavArrow left" type="button" onClick={() => go(-1)} aria-label="Promoção anterior">‹</button>
+    <div className="methodsHeroInner">
+      <div className="methodsHeroCopy">
+        <span className="heroSaleBadge">{slide.eyebrow}</span>
+        <h1>{slide.title}</h1>
+        <p>{slide.text}</p>
+        <div className="heroMiniBenefits">
+          <span>📈 Estratégia prática</span>
+          <span>🎓 10 módulos</span>
+          <span>🎁 3 bônus</span>
+        </div>
+        <button type="button" onClick={() => current === 1 ? buyMethod(methods[0]) : window.location.hash = '#ofertas'}>{slide.cta} <b>›</b></button>
+      </div>
+
+      <div className="methodsHeroVisual" aria-label="Expositor de métodos OrganizaPro">
+        <div className="heroBookStack">
+          <article><small>Método</small><b>Clareza Total</b><em>Organize. Foque. Cresça.</em></article>
+          <article><small>Método</small><b>Vendas que Escalam</b><em>Estratégias para vender mais.</em></article>
+          <article><small>Método</small><b>Lucro com Organização</b><em>Mais controle. Mais resultado.</em></article>
+        </div>
+        <img className="heroLaptopCard" src={slide.image} alt="Método OrganizaPro em destaque" />
+        <div className="heroFloat one"><b>{slide.highlight}</b><small>Condição atual</small></div>
+        <div className="heroFloat two"><b>Acesso digital</b><small>Receba pelo WhatsApp</small></div>
+      </div>
+    </div>
+    <button className="heroNavArrow right" type="button" onClick={() => go(1)} aria-label="Próxima promoção">›</button>
+    <div className="heroDots">{promoSlides.map((_, index) => <button key={index} type="button" className={index === current ? 'active' : ''} onClick={() => setCurrent(index)} aria-label={`Ver promoção ${index + 1}`} />)}</div>
+  </section>;
+}
+
+function MethodsQuickRail() {
+  return <section className="methodsQuickRail" id="categorias" aria-label="Atalhos de métodos">
+    {methodQuickCards.map((card, index) => <a key={card.title} href={index === 0 ? '#ofertas' : '/metodos'} className="quickRailCard">
+      <b>{card.title}</b>
+      {card.img ? <img src={card.img} alt="" /> : <span>{card.icon}</span>}
+      <p>{card.text}</p>
+      <small>{card.cta}</small>
+    </a>)}
+  </section>;
+}
+
+function MethodMarketCard({ method }) {
+  const ready = method.status === 'disponivel';
+  return <article className="methodMarketCard">
+    <div className="methodMarketImage">
+      <img src={method.img} alt={method.title} />
+      <span className={ready ? 'ready' : 'soon'}>{method.label}</span>
+      <button type="button" aria-label="Favoritar método">♡</button>
+    </div>
+    <div className="methodMarketBody">
+      <h3>{method.title}</h3>
+      <div className="marketRating"><span>★★★★★</span><small>({method.reviews})</small></div>
+      <p>{method.short}</p>
+      <ul>{method.bullets.slice(0, 3).map(item => <li key={item}>✓ {item}</li>)}</ul>
+      <div className="marketPriceRow">
+        <div><small>De {method.old} por</small><strong>{method.price}</strong></div>
+        <em>{method.discount}</em>
+      </div>
+      <button className="marketBuyButton" type="button" onClick={() => buyMethod(method)}>{ready ? 'Quero este método' : 'Quero saber quando abrir'}</button>
+    </div>
+  </article>;
+}
+
+function MethodsMarketplacePage() {
+  return <main className="methodsMarketplacePage">
+    <MarketHeader active="metodos" />
+    <MethodsPromoHero />
+    <MethodsQuickRail />
+
+    <section className="methodsStoreIntro" id="ofertas">
+      <span>OrganizaPro Métodos</span>
+      <h2>Aprenda, aplique e venda mais com métodos práticos.</h2>
+      <p>Produtos digitais com módulos, bônus e aplicação direta para diferentes áreas de negócio.</p>
+    </section>
+
+    <section className="methodsStoreGrid" aria-label="Métodos disponíveis">
+      {methods.map(method => <MethodMarketCard key={method.id} method={method} />)}
+    </section>
+
+    <section className="methodsComboCta">
+      <div><span>🚀</span><h2>Pronto para elevar seu negócio ao próximo nível?</h2><p>Fale com a OrganizaPro e descubra o melhor método para o seu momento.</p></div>
+      <div><a className="btn btnWhatsapp" href={wa('Olá, vim pela página de métodos e quero saber qual método combina com meu negócio.')} target="_blank" rel="noopener">◉ Falar no WhatsApp</a><a className="btn btnPrimary" href="/servicos">Agendar conversa</a></div>
+    </section>
+
+    <Footer />
+    <MobileActions />
+  </main>;
 }
 
 function Header() {
@@ -432,14 +615,7 @@ function ProductCard({ product }) {
 }
 
 function MethodsPage() {
-  return <Layout>
-    <PageHero label="OrganizaPro Métodos" title="Aprenda, aplique e venda mais com métodos práticos." text="Produtos digitais com módulos, bônus e aplicação direta para diferentes áreas de negócio." />
-    <section className="section shelf pageShelf">
-      <div className="methodShelfGrid large">
-        {methods.map(method => <MethodProductCard key={method.id} method={method} />)}
-      </div>
-    </section>
-  </Layout>;
+  return <MethodsMarketplacePage />;
 }
 
 function ServicesPage() {
