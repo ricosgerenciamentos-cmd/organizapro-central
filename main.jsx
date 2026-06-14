@@ -415,16 +415,133 @@ function Layout({ children }) {
   </main>;
 }
 
+
 function Home() {
   return <Layout>
-    <Hero />
-    <TrustBar />
-    <SolutionsShowcase />
-    <MethodsShelf />
-    <ServicesShelf />
-    <ToolsShelf />
-    <ProductsShelf />
+    <CorporateHero />
+    <CorporateSolutionBlocks />
+    <BusinessAnswerSection />
+    <CorporateProofSection />
+    <CorporateSplitSection />
   </Layout>;
+}
+
+function CorporateHero() {
+  return <section className="corpHero">
+    <div className="corpHeroBackdrop" />
+    <div className="corpHeroPanel">
+      <div className="corpHeroText">
+        <span>OrganizaPro • Soluções para seu negócio</span>
+        <h1>Inovamos para melhorar <strong>seu negócio</strong></h1>
+        <p>Métodos, serviços, ferramentas e produtos conectados para organizar sua operação, melhorar o atendimento e transformar rotina em crescimento.</p>
+        <div className="corpHeroActions">
+          <a className="btn btnPrimary" href="#solucoes-corporativas">Conhecer soluções</a>
+          <a className="btn btnWhatsapp" href={wa('Olá, vim pela página inicial da OrganizaPro e quero entender qual solução combina com meu negócio.')} target="_blank" rel="noopener">◉ Falar no WhatsApp</a>
+        </div>
+      </div>
+      <div className="corpHeroCards" aria-label="Indicadores OrganizaPro">
+        <article><small>Mais clareza</small><b>Processos em dia</b></article>
+        <article><small>Mais vendas</small><b>+ organização</b></article>
+        <article><small>Mais tempo</small><b>Rotina melhor</b></article>
+      </div>
+    </div>
+  </section>;
+}
+
+function CorporateSolutionBlocks() {
+  const blocks = [
+    {
+      title: 'OrganizaPro Métodos',
+      text: 'Produtos digitais com passo a passo, módulos e bônus para aprender, aplicar e melhorar a estrutura do negócio.',
+      img: '/barbearia.png',
+      href: '/metodos',
+      cta: 'Saiba mais'
+    },
+    {
+      title: 'OrganizaPro Serviços',
+      text: 'Execução profissional para organizar atendimento, presença digital, WhatsApp e estrutura comercial.',
+      img: '/organizapro-hero.webp',
+      href: '/servicos',
+      cta: 'Ver serviços'
+    },
+    {
+      title: 'OrganizaPro Ferramentas',
+      text: 'Calculadoras, checklists, geradores e controles simples para resolver problemas reais do dia a dia.',
+      img: '/assistencia-celular.png',
+      href: '/ferramentas',
+      cta: 'Ver ferramentas'
+    }
+  ];
+
+  return <section className="corpBlocks" id="solucoes-corporativas">
+    {blocks.map((block, index) => <article className="corpBlock" key={block.title}>
+      <div className="corpBlockImage" style={{ backgroundImage: `url(${block.img})` }} />
+      <div className="corpBlockText">
+        <span>{index === 0 ? 'Aprender e aplicar' : index === 1 ? 'Organizar e executar' : 'Controlar e crescer'}</span>
+        <h2>{block.title}</h2>
+        <p>{block.text}</p>
+        <a href={block.href}>{block.cta}</a>
+      </div>
+    </article>)}
+  </section>;
+}
+
+function BusinessAnswerSection() {
+  const needs = [
+    { title: 'Barbearias', subtitle: 'Métodos, atendimento e precificação', img: '/barbearia.png', href: '/metodos' },
+    { title: 'Assistência técnica', subtitle: 'Diagnóstico, bancada e serviços', img: '/assistencia-celular.png', href: '/metodos' },
+    { title: 'Delivery e alimentação', subtitle: 'Rotina, preparo e operação', img: '/reeducacao-alimentar.png', href: '/ferramentas' },
+    { title: 'Presença digital', subtitle: 'Site, WhatsApp e comunicação', img: '/organizapro-hero.webp', href: '/servicos' }
+  ];
+
+  return <section className="corpAnswer">
+    <div className="corpSectionTitle">
+      <h2>Temos a resposta certa para o seu negócio</h2>
+      <p>Escolha o ponto que mais combina com a sua necessidade agora.</p>
+    </div>
+    <div className="corpNeedGrid">
+      {needs.map(need => <a key={need.title} href={need.href} className="corpNeedCard">
+        <div style={{ backgroundImage: `url(${need.img})` }} />
+        <h3>{need.title}</h3>
+        <p>{need.subtitle}</p>
+      </a>)}
+    </div>
+  </section>;
+}
+
+function CorporateProofSection() {
+  const cards = [
+    ['Métodos práticos', 'Materiais diretos para transformar conhecimento em ação.'],
+    ['Serviços aplicáveis', 'Apoio para organizar áreas que travam o crescimento.'],
+    ['Produtos recomendados', 'Indicações para equipar melhor cada nicho.']
+  ];
+
+  return <section className="corpProof">
+    <h2>Mais clareza para vender, atender e crescer</h2>
+    <div className="corpProofGrid">
+      {cards.map(([title, text]) => <article key={title}>
+        <div className="playBadge">▶</div>
+        <h3>{title}</h3>
+        <p>{text}</p>
+      </article>)}
+    </div>
+    <a href="/metodos">Ver soluções disponíveis</a>
+  </section>;
+}
+
+function CorporateSplitSection() {
+  return <section className="corpSplit">
+    <div className="corpAbout">
+      <h2>Sobre a OrganizaPro</h2>
+      <p>Criamos uma central de soluções para quem precisa organizar o negócio sem complicar: métodos, serviços, ferramentas e produtos recomendados em um só ecossistema.</p>
+      <a href="/contato">Falar com a OrganizaPro</a>
+    </div>
+    <div className="corpPartner">
+      <h2>Quer saber por onde começar?</h2>
+      <p>Explique seu momento e indicaremos o caminho mais simples: método, serviço, ferramenta ou produto.</p>
+      <a href={wa('Olá, quero saber por onde começar com a OrganizaPro.')} target="_blank" rel="noopener">Descobrir melhor solução</a>
+    </div>
+  </section>;
 }
 
 function Hero() {
