@@ -1,9 +1,13 @@
-import React, { useMemo, useState } from 'react';
+import React, { useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import './style.css';
 
 const WHATSAPP_NUMBER = '5512983216069';
-const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Olá, vim pelo site da OrganizaPro e quero entender a melhor solução para o meu negócio.')}`;
+function makeWhatsAppUrl(message = 'Olá, vim pelo site da OrganizaPro e quero entender a melhor solução para o meu negócio.') {
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+}
+
+const whatsappUrl = makeWhatsAppUrl();
 const email = 'OrganizaPro01@gmail.com';
 const instagram = '@organizaprov';
 
@@ -146,6 +150,41 @@ const productCategories = [
   'Ferramentas para organizar empresas'
 ];
 
+const homeChoices = [
+  {
+    title: 'Métodos',
+    eyebrow: 'Quero aprender e aplicar',
+    icon: '🎓',
+    path: '/metodos',
+    message: 'Métodos digitais com 10 módulos e 3 bônus para evoluir com direção.',
+    cta: 'Ver métodos'
+  },
+  {
+    title: 'Serviços',
+    eyebrow: 'Quero ajuda profissional',
+    icon: '💼',
+    path: '/servicos',
+    message: 'Assistente Virtual, site, WhatsApp e presença digital para profissionalizar a operação.',
+    cta: 'Ver serviços'
+  },
+  {
+    title: 'Ferramentas',
+    eyebrow: 'Quero organizar a rotina',
+    icon: '🛠️',
+    path: '/ferramentas',
+    message: 'Calculadoras, checklists, planilhas, geradores e sistemas simples por profissão.',
+    cta: 'Ver ferramentas'
+  },
+  {
+    title: 'Produtos',
+    eyebrow: 'Quero equipar meu negócio',
+    icon: '🛍️',
+    path: '/produtos',
+    message: 'Produtos recomendados por nicho para comprar com mais direção e menos tentativa.',
+    cta: 'Ver produtos'
+  }
+];
+
 const navItems = [
   { label: 'Início', path: '/' },
   { label: 'Métodos', path: '/metodos' },
@@ -153,6 +192,41 @@ const navItems = [
   { label: 'Ferramentas', path: '/ferramentas' },
   { label: 'Produtos', path: '/produtos' }
 ];
+
+const seoByPath = {
+  '/': {
+    title: 'OrganizaPro | Soluções para seu negócio',
+    description: 'Central OrganizaPro: métodos, serviços, ferramentas e produtos recomendados para negócios que querem crescer com organização.'
+  },
+  '/metodos': {
+    title: 'OrganizaPro Métodos | Aprenda e aplique no seu negócio',
+    description: 'Métodos digitais práticos com módulos, bônus e aplicação direta para barbearia, assistência técnica, estética e alimentação.'
+  },
+  '/servicos': {
+    title: 'OrganizaPro Serviços | Assistente Virtual, Sites e WhatsApp',
+    description: 'Serviços para organizar atendimento, criar sites, profissionalizar o WhatsApp e melhorar a presença digital do seu negócio.'
+  },
+  '/ferramentas': {
+    title: 'OrganizaPro Ferramentas | Recursos práticos para negócios',
+    description: 'Ferramentas em desenvolvimento: calculadoras, checklists, planilhas, geradores e sistemas simples por profissão.'
+  },
+  '/produtos': {
+    title: 'OrganizaPro Produtos | Recomendações para seu negócio',
+    description: 'Produtos recomendados por nicho para equipar, organizar e melhorar a operação do seu negócio.'
+  },
+  '/privacidade': {
+    title: 'Política de Privacidade | OrganizaPro',
+    description: 'Veja como a OrganizaPro trata dados de contato, compras, atendimento e navegação.'
+  },
+  '/termos': {
+    title: 'Termos de Uso | OrganizaPro',
+    description: 'Termos gerais de uso dos métodos, serviços, ferramentas e produtos recomendados da OrganizaPro.'
+  },
+  '/reembolso': {
+    title: 'Política de Reembolso | OrganizaPro',
+    description: 'Condições gerais de reembolso e suporte para produtos digitais, serviços e recomendações da OrganizaPro.'
+  }
+};
 
 function currentPath() {
   return window.location.pathname.replace(/\/$/, '') || '/';
@@ -211,12 +285,12 @@ function Header() {
           <BrandLogo />
           <div className="searchBox" role="search">
             <span>⌕</span>
-            <input placeholder="Buscar métodos, serviços, ferramentas e produtos..." aria-label="Buscar" />
+            <input placeholder="Do que seu negócio precisa hoje? Métodos, serviços, ferramentas ou produtos..." aria-label="Buscar" />
           </div>
           <div className="quickActions" aria-label="Ações rápidas">
-            <button type="button" className="miniAction"><span>♡</span><small>Favoritos</small></button>
-            <button type="button" className="miniAction"><span>🛒</span><small>Carrinho</small></button>
-            <a className="whatsHeader" href={whatsappUrl}>☻ Falar com a OrganizaPro</a>
+            <button type="button" className="miniAction" onClick={() => navigate('/metodos')}><span>🎓</span><small>Métodos</small></button>
+            <button type="button" className="miniAction" onClick={() => navigate('/servicos')}><span>💼</span><small>Serviços</small></button>
+            <a className="whatsHeader" href={makeWhatsAppUrl('Olá, vim pelo site da OrganizaPro. Quero entender qual solução faz mais sentido para meu negócio.')}>☻ Falar com a OrganizaPro</a>
           </div>
         </div>
         <nav className="navBar" aria-label="Navegação principal">
@@ -285,38 +359,40 @@ function Home() {
     <Shell>
       <section className="homeHero">
         <div className="heroBackdrop" />
-        <div className="homeHeroPanel container">
+        <div className="homeHeroPanel container portalHeroPanel">
           <div className="heroCopy">
             <span className="pill">OrganizaPro • soluções para seu negócio</span>
-            <h1>Inovamos para melhorar seu negócio</h1>
-            <p>Métodos, serviços, ferramentas e produtos conectados para organizar sua operação, melhorar o atendimento e transformar rotina em crescimento.</p>
+            <h1>O que seu negócio precisa agora?</h1>
+            <p>Escolha o caminho certo: aprender com métodos, contratar um serviço, usar ferramentas ou encontrar produtos recomendados para crescer com mais organização.</p>
+            <div className="heroDecisionNote">
+              <strong>Menos confusão, mais direção.</strong>
+              <span>A Central OrganizaPro leva cada cliente para a página certa, sem misturar métodos, serviços, ferramentas e produtos na mesma vitrine.</span>
+            </div>
             <div className="heroActions">
-              <button className="btn primary" onClick={() => go('/metodos')}>Conhecer soluções</button>
-              <a className="btn whats" href={whatsappUrl}>Falar no WhatsApp</a>
+              <button className="btn primary" onClick={() => go('/metodos')}>Ver métodos</button>
+              <button className="btn whats" onClick={() => go('/servicos')}>Ver serviços</button>
             </div>
           </div>
-          <div className="heroSignalCards">
-            <InfoCard title="Mais organização" text="Rotinas claras e tarefas sob controle." />
-            <InfoCard title="Processos claros" text="Métodos simples e eficientes." />
-            <InfoCard title="Atendimento melhor" text="Clientes mais satisfeitos e fiéis." />
+          <div className="heroChoiceGrid" aria-label="Escolha uma área da OrganizaPro">
+            {homeChoices.map((choice) => <HomeChoiceCard key={choice.path} choice={choice} />)}
           </div>
         </div>
       </section>
 
       <section className="featureRail container">
-        <FeatureMini icon="🔒" title="Pagamento seguro" />
+        <FeatureMini icon="🎯" title="Escolha rápida" />
+        <FeatureMini icon="💬" title="WhatsApp direcionado" />
         <FeatureMini icon="☁️" title="Acesso digital" />
-        <FeatureMini icon="💬" title="Suporte no WhatsApp" />
-        <FeatureMini icon="🛠️" title="Aplicação prática" />
+        <FeatureMini icon="🔒" title="Compra segura" />
       </section>
 
       <section className="section container">
-        <SectionTitle kicker="Central OrganizaPro" title="Uma estrutura única para cada etapa do seu negócio" text="A experiência agora segue a mesma identidade em todas as páginas: institucional, marketplace e conversão no mesmo sistema." />
+        <SectionTitle kicker="Central OrganizaPro" title="Entre pela área certa e avance com mais clareza" text="O site foi organizado como um portal: o cliente escolhe o que precisa e vai direto para a página com a solução correspondente." />
         <div className="solutionMatrix">
-          <SolutionPanel title="Métodos" subtitle="Aprender e aplicar" image="/images/home-metodos.jpg" path="/metodos" text="Materiais práticos com módulos, bônus e passo a passo." />
-          <SolutionPanel title="Serviços" subtitle="Executar com apoio" image="/images/home-servicos.jpg" path="/servicos" text="Soluções para atendimento, site, WhatsApp e presença digital." />
-          <SolutionPanel title="Ferramentas" subtitle="Organizar a rotina" image="/images/home-ferramentas.jpg" path="/ferramentas" text="Calculadoras, planilhas, geradores e sistemas simples." />
-          <SolutionPanel title="Produtos" subtitle="Equipar melhor" image="/images/home-produtos.jpg" path="/produtos" text="Recomendações por nicho para trabalhar com mais estrutura." />
+          <SolutionPanel title="Métodos" subtitle="Aprender e aplicar" image="/images/home-metodos.jpg" path="/metodos" text="Produtos digitais com módulos, bônus e orientação prática para aplicar sozinho." />
+          <SolutionPanel title="Serviços" subtitle="Executar com apoio" image="/images/home-servicos.jpg" path="/servicos" text="Assistente Virtual, criação de sites, WhatsApp organizado e presença digital." />
+          <SolutionPanel title="Ferramentas" subtitle="Organizar a rotina" image="/images/home-ferramentas.jpg" path="/ferramentas" text="Calculadoras, planilhas, checklists, geradores e sistemas simples por nicho." />
+          <SolutionPanel title="Produtos" subtitle="Comprar com direção" image="/images/home-produtos.jpg" path="/produtos" text="Curadoria de produtos úteis para equipar, organizar e melhorar a operação." />
         </div>
       </section>
 
@@ -324,14 +400,26 @@ function Home() {
         <div className="splitImage"><MediaFrame src="/images/home-institucional.jpg" alt="Equipe e tecnologia aplicada a negócios" /></div>
         <div className="splitText">
           <span className="eyebrow">Resposta certa para seu negócio</span>
-          <h2>Você escolhe o momento. A OrganizaPro indica o próximo passo.</h2>
-          <p>Sem textão, sem confusão: a central mostra o que aprender, o que contratar, quais ferramentas usar e quais produtos podem ajudar sua operação.</p>
-          <button className="btn primary" onClick={() => go('/metodos')}>Ver soluções</button>
+          <h2>Seu cliente decide rápido. Sua empresa precisa estar pronta antes dele chamar.</h2>
+          <p>A OrganizaPro organiza o caminho: o que aprender, o que contratar, quais ferramentas usar e quais produtos podem ajudar sua operação a parecer mais profissional.</p>
+          <button className="btn primary" onClick={() => go('/servicos')}>Profissionalizar meu negócio</button>
         </div>
       </section>
 
       <CTA />
     </Shell>
+  );
+}
+
+function HomeChoiceCard({ choice }) {
+  return (
+    <button type="button" className="heroChoiceCard" onClick={() => go(choice.path)}>
+      <span className="heroChoiceIcon">{choice.icon}</span>
+      <span className="heroChoiceEyebrow">{choice.eyebrow}</span>
+      <strong>{choice.title}</strong>
+      <small>{choice.message}</small>
+      <em>{choice.cta} →</em>
+    </button>
   );
 }
 
@@ -380,7 +468,7 @@ function MethodsPage() {
       />
       <MethodShowcase />
       <section className="section container compactTop">
-        <SectionTitle title="Métodos disponíveis" text="Sem números falsos, sem avaliações inventadas e sem desconto artificial. Apenas informação clara para decisão de compra." />
+        <SectionTitle title="Escolha o método certo para aplicar hoje" text="Cada método foi pensado para entregar direção rápida, módulos práticos e próximos passos claros para o cliente sair do improviso." />
         <div className="methodGrid">
           {methods.map((method) => <MethodCard key={method.id} method={method} />)}
         </div>
@@ -436,7 +524,7 @@ function MethodCard({ method }) {
         <div className="priceLine">
           <div><small>Preço atual</small><strong>{method.price}</strong></div>
         </div>
-        <a className="btn primary full" href={whatsappUrl}>{method.cta}</a>
+        <a className="btn primary full" href={makeWhatsAppUrl(`Olá, tenho interesse no ${method.title} da OrganizaPro.`)}>{method.cta}</a>
       </div>
     </article>
   );
@@ -472,7 +560,7 @@ function ServiceCard({ service }) {
       <h3>{service.title}</h3>
       <p>{service.description}</p>
       <ul>{service.bullets.map((b) => <li key={b}>✓ {b}</li>)}</ul>
-      <a className="btn primary full" href={whatsappUrl}>{service.cta} →</a>
+      <a className="btn primary full" href={makeWhatsAppUrl(`Olá, tenho interesse no serviço de ${service.title} da OrganizaPro.`)}>{service.cta} →</a>
     </article>
   );
 }
@@ -484,13 +572,13 @@ function ValueCard({ number, title, text }) {
 function ToolsPage() {
   return (
     <Shell>
-      <PageIntro image="/images/ferramentas-hero.jpg" kicker="OrganizaPro Ferramentas" title="Ferramentas práticas para resolver problemas reais de cada profissão." text="Essa área ficará pronta depois da central. Vamos criar calculadoras, checklists, geradores, planilhas e sistemas simples para alimentar o site." />
+      <PageIntro image="/images/ferramentas-hero.jpg" kicker="OrganizaPro Ferramentas" title="Ferramentas práticas para resolver problemas reais de cada profissão." text="Mesmo antes das ferramentas ficarem prontas, esta área já mostra o que será criado e captura interessados para cada solução." />
       <section className="section container compactTop">
         <div className="developmentPanel">
           <span className="status queue">Em desenvolvimento</span>
           <h2>Primeiras ferramentas que vamos criar</h2>
           <div className="toolChips">{tools.map((tool) => <span key={tool}>{tool}</span>)}</div>
-          <a className="btn primary" href={whatsappUrl}>Entrar na lista de interesse</a>
+          <a className="btn primary" href={makeWhatsAppUrl('Olá, quero acompanhar as ferramentas da OrganizaPro e ser avisado quando saírem.')}>Quero ser avisado</a>
         </div>
       </section>
       <CTA />
@@ -525,10 +613,11 @@ function ProductsPage() {
       <section id="produtos-categorias" className="section container compactTop">
         <div className="developmentPanel orangeSoft">
           <span className="status queue orange">Curadoria afiliada</span>
-          <h2>Vamos buscar os melhores produtos por nicho</h2>
+          <h2>Produtos organizados por nicho, sem virar loja aleatória</h2>
           <div className="toolChips">{productCategories.map((category) => <span key={category}>{category}</span>)}</div>
           <p>Depois vamos colocar esses links dentro dos métodos e também nesta área do site.</p>
-          <a className="btn primary" href={whatsappUrl}>Falar sobre recomendações</a>
+          <div className="transparencyNote">Alguns links poderão gerar comissão para a OrganizaPro, sem custo extra para você. A proposta é indicar produtos úteis, não criar uma loja aleatória.</div>
+          <a className="btn primary" href={makeWhatsAppUrl('Olá, quero ver produtos recomendados pela OrganizaPro para meu nicho.')}>Falar sobre recomendações</a>
         </div>
       </section>
       <CTA />
@@ -557,13 +646,13 @@ function CTA() {
         <h2>Não sabe por onde começar?</h2>
         <p>Fale com a OrganizaPro. Vamos entender seu momento e indicar a melhor solução.</p>
       </div>
-      <a className="btn ctaBtn" href={whatsappUrl}>Chamar no WhatsApp</a>
+      <a className="btn ctaBtn" href={makeWhatsAppUrl('Olá, não sei por onde começar. Pode me ajudar a escolher entre métodos, serviços, ferramentas ou produtos?')}>Chamar no WhatsApp</a>
     </section>
   );
 }
 
 function FloatingWhats() {
-  return <a className="floatingWhats" href={whatsappUrl} aria-label="Falar no WhatsApp">☘</a>;
+  return <a className="floatingWhats" href={makeWhatsAppUrl('Olá, vim pelo site da OrganizaPro e quero atendimento.')} aria-label="Falar no WhatsApp">☘</a>;
 }
 
 function Footer() {
@@ -584,9 +673,14 @@ function Footer() {
           <p>{email}</p>
           <p>{instagram}</p>
           <a className="footerWhats" href={whatsappUrl}>Falar no WhatsApp</a>
+          <div className="footerLegalLinks">
+            <button type="button" onClick={() => go('/privacidade')}>Privacidade</button>
+            <button type="button" onClick={() => go('/termos')}>Termos</button>
+            <button type="button" onClick={() => go('/reembolso')}>Reembolso</button>
+          </div>
         </div>
       </div>
-      <div className="footerBottom">© 2024 OrganizaPro. Todos os direitos reservados.</div>
+      <div className="footerBottom">© 2026 OrganizaPro. Todos os direitos reservados.</div>
     </footer>
   );
 }
@@ -608,6 +702,62 @@ function ImageGuidePage() {
   );
 }
 
+
+function LegalPage({ type }) {
+  const content = {
+    privacidade: {
+      kicker: 'Privacidade',
+      title: 'Política de Privacidade',
+      text: 'Esta página explica de forma simples como a OrganizaPro usa informações de contato, atendimento, compra e navegação.',
+      items: [
+        ['Dados de contato', 'Podemos usar nome, e-mail, WhatsApp e mensagens enviadas pelo cliente para responder solicitações, entregar produtos e prestar suporte.'],
+        ['Compras e pagamentos', 'Pagamentos podem ser processados por plataformas externas. A OrganizaPro não solicita dados sensíveis de cartão diretamente pelo WhatsApp.'],
+        ['Produtos recomendados', 'Alguns links de produtos podem ser afiliados. Isso pode gerar comissão para a OrganizaPro, sem custo extra para o cliente.'],
+        ['Contato', `Para dúvidas sobre dados e atendimento, fale pelo e-mail ${email} ou pelo WhatsApp informado no site.`]
+      ]
+    },
+    termos: {
+      kicker: 'Termos',
+      title: 'Termos de Uso',
+      text: 'Ao navegar, comprar ou solicitar atendimento, o cliente concorda com regras básicas de uso, entrega digital e comunicação.',
+      items: [
+        ['Métodos digitais', 'Os métodos são materiais digitais de orientação prática. O resultado depende da aplicação, rotina, mercado e dedicação de cada cliente.'],
+        ['Serviços', 'Serviços como criação de sites, presença digital e organização de WhatsApp dependem de briefing, envio de informações e aprovação do cliente.'],
+        ['Ferramentas', 'Ferramentas em desenvolvimento poderão ser alteradas, melhoradas ou descontinuadas conforme testes e demanda.'],
+        ['Uso indevido', 'Não é permitido revender, copiar ou distribuir materiais digitais da OrganizaPro sem autorização.']
+      ]
+    },
+    reembolso: {
+      kicker: 'Reembolso',
+      title: 'Política de Reembolso',
+      text: 'Esta página organiza as condições iniciais para suporte, correções e pedidos de reembolso.',
+      items: [
+        ['Produtos digitais', 'Pedidos de suporte devem informar nome, produto comprado e comprovante. A análise considera acesso, entrega e eventual erro técnico.'],
+        ['Serviços', 'Serviços sob demanda podem ter regras próprias conforme escopo combinado, etapa de execução e material já produzido.'],
+        ['Produtos afiliados', 'Produtos comprados em sites de terceiros seguem a política da loja ou plataforma onde a compra foi concluída.'],
+        ['Atendimento', `Para solicitar análise, entre em contato pelo e-mail ${email} ou pelo WhatsApp da OrganizaPro.`]
+      ]
+    }
+  }[type];
+
+  return (
+    <Shell>
+      <PageIntro kicker={content.kicker} title={content.title} text={content.text} />
+      <section className="section container compactTop">
+        <div className="legalGrid">
+          {content.items.map(([title, text]) => (
+            <article className="legalCard" key={title}>
+              <h3>{title}</h3>
+              <p>{text}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+      <CTA />
+    </Shell>
+  );
+}
+
 function App() {
   const [path, setPath] = useState(currentPath());
   React.useEffect(() => {
@@ -616,10 +766,25 @@ function App() {
     return () => window.removeEventListener('popstate', sync);
   }, []);
 
+  React.useEffect(() => {
+    const meta = seoByPath[path] || seoByPath['/'];
+    document.title = meta.title;
+    let description = document.querySelector('meta[name="description"]');
+    if (!description) {
+      description = document.createElement('meta');
+      description.setAttribute('name', 'description');
+      document.head.appendChild(description);
+    }
+    description.setAttribute('content', meta.description);
+  }, [path]);
+
   if (path === '/metodos') return <MethodsPage />;
   if (path === '/servicos') return <ServicesPage />;
   if (path === '/ferramentas') return <ToolsPage />;
   if (path === '/produtos') return <ProductsPage />;
+  if (path === '/privacidade') return <LegalPage type="privacidade" />;
+  if (path === '/termos') return <LegalPage type="termos" />;
+  if (path === '/reembolso') return <LegalPage type="reembolso" />;
   if (path === '/guia-imagens') return <ImageGuidePage />;
   return <Home />;
 }
