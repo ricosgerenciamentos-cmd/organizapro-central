@@ -445,7 +445,7 @@ function MethodCard({ method }) {
 function ServicesPage() {
   return (
     <Shell>
-      <PageIntro kicker="OrganizaPro Serviços" title="Serviços para deixar seu negócio mais organizado, profissional e eficiente." text="Ativaremos primeiro os serviços com maior facilidade de venda e execução: Assistente Virtual, Sites, Organização de WhatsApp e Presença Digital." />
+      <PageIntro image="/images/servicos-hero.jpg" kicker="OrganizaPro Serviços" title="Serviços para deixar seu negócio mais organizado, profissional e eficiente." text="Ativaremos primeiro os serviços com maior facilidade de venda e execução: Assistente Virtual, Sites, Organização de WhatsApp e Presença Digital." />
       <section className="section container compactTop">
         <div className="serviceGrid premiumCards">
           {services.map((service) => <ServiceCard key={service.title} service={service} />)}
@@ -484,7 +484,7 @@ function ValueCard({ number, title, text }) {
 function ToolsPage() {
   return (
     <Shell>
-      <PageIntro kicker="OrganizaPro Ferramentas" title="Ferramentas práticas para resolver problemas reais de cada profissão." text="Essa área ficará pronta depois da central. Vamos criar calculadoras, checklists, geradores, planilhas e sistemas simples para alimentar o site." />
+      <PageIntro image="/images/ferramentas-hero.jpg" kicker="OrganizaPro Ferramentas" title="Ferramentas práticas para resolver problemas reais de cada profissão." text="Essa área ficará pronta depois da central. Vamos criar calculadoras, checklists, geradores, planilhas e sistemas simples para alimentar o site." />
       <section className="section container compactTop">
         <div className="developmentPanel">
           <span className="status queue">Em desenvolvimento</span>
@@ -536,12 +536,15 @@ function ProductsPage() {
   );
 }
 
-function PageIntro({ kicker, title, text }) {
+function PageIntro({ kicker, title, text, image }) {
   return (
     <section className="pageIntro container">
-      <span className="pill">{kicker}</span>
-      <h1>{title}</h1>
-      <p>{text}</p>
+      {image && <MediaFrame src={image} alt={title} className="pageIntroImage" />}
+      <div className="pageIntroCopy">
+        <span className="pill">{kicker}</span>
+        <h1>{title}</h1>
+        <p>{text}</p>
+      </div>
     </section>
   );
 }
