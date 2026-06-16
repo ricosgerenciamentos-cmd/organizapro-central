@@ -1,0 +1,54 @@
+@media (max-width: 1180px) {
+  .headerInner { grid-template-columns: 230px 1fr; }
+  .headerActions { grid-column: 1 / -1; justify-content: flex-start; }
+  .cardGrid.four, .cardGrid.five, .solutionMatrix { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .homeHeroPanel { grid-template-columns: 1fr; padding: 54px; }
+  .heroSignalCards { justify-items: stretch; grid-template-columns: repeat(3, 1fr); }
+  .comboCard, .detailGrid, .finalCTAInner, .footerGrid, .contactGrid { grid-template-columns: 1fr; }
+  .processGrid, .cardGrid.three { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 760px) {
+  :root { --container: min(100% - 28px, 1180px); }
+  .topStrip { font-size: 12px; }
+  .headerInner { width: var(--container); grid-template-columns: 1fr; gap: 14px; padding: 18px 0 14px; }
+  .searchIntent { height: 52px; }
+  .headerActions { flex-wrap: wrap; }
+  .headerWhats { width: 100%; }
+  .navBar { gap: 18px; padding-bottom: 14px; }
+  .categoryPanel { grid-template-columns: 1fr; padding: 18px; }
+  .categoryGrid { grid-template-columns: 1fr; }
+  .section { padding: 68px 0; }
+  .homeHero { min-height: auto; padding: 46px 0; }
+  .homeHeroPanel { padding: 30px; min-height: auto; }
+  .heroCopy h1, .sectionTitle h2, .pageHero h1, .legalPage h1 { letter-spacing: -.055em; }
+  .heroActions .btn, .finalCTA .btn, .detailActions .btn { width: 100%; }
+  .heroSignalCards, .featureRail, .solutionMatrix, .cardGrid.three, .cardGrid.four, .cardGrid.five, .processGrid { grid-template-columns: 1fr; }
+  .featureRail { margin-top: 0; border-radius: 0; }
+  .featureMini { border-right: 0; border-bottom: 1px solid var(--line); }
+  .twoColumns { columns: 1; }
+  .comboCard { padding: 18px; border-radius: 22px; }
+  .comboContent { padding: 8px; }
+  .pricePanel { padding: 26px; }
+  .pageHero { padding: 64px 0; }
+  .footerGrid { gap: 26px; }
+  .brandText { font-size: 21px; }
+  .brandMark { width: 48px; height: 48px; }
+}
+
+@media (max-width: 1180px) {
+  .loginGrid, .platformLayout, .platformHeader, .aiWorkspace { grid-template-columns: 1fr; }
+  .platformSidebar { position: static; }
+  .platformStats, .crmSummary { grid-template-columns: repeat(2, 1fr); }
+  .leadForm, .leadCard { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 760px) {
+  .loginPage { padding: 56px 0; }
+  .loginCard { padding: 24px; border-radius: 22px; }
+  .platformPage { padding: 28px 0 64px; }
+  .platformHeader { padding: 24px; }
+  .platformStats, .crmSummary, .platformCards, .automationGrid, .clientGrid, .leadForm, .leadCard { grid-template-columns: 1fr; }
+  .platformSidebar nav { grid-template-columns: 1fr 1fr; }
+  .platformSidebar nav button { font-size: 13px; }
+}

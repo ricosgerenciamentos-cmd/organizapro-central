@@ -1,0 +1,20 @@
+:root {
+  --navy: #061a36;
+  --navy-2: #08264e;
+  --blue: #0b5cff;
+  --blue-2: #2494ff;
+  --blue-3: #eaf3ff;
+  --sky: #f3f8ff;
+  --ice: #f8fbff;
+  --white: #ffffff;
+  --text: #0f1f37;
+  --muted: #617086;
+  --line: #dbe8f5;
+  --green: #0e9f5b;
+  --orange: #ff7a1a;
+  --shadow: 0 26px 80px rgba(6, 26, 54, .14);
+  --soft-shadow: 0 14px 42px rgba(12, 48, 94, .10);
+  --radius: 24px;
+  --radius-sm: 16px;
+  --container: min(1180px, calc(100% - 40px));
+}

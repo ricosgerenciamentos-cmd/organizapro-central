@@ -1,0 +1,38 @@
+export const tools = [
+  {
+    id: 'calculadoras',
+    title: 'Calculadoras',
+    icon: '🧮',
+    image: '/images/ferramenta-calculadoras.jpg',
+    short: 'Cálculos simples para preço, lucro, margem e viabilidade.',
+    bullets: ['Preço ideal', 'Margem de lucro', 'Custo por serviço', 'Meta de vendas'],
+    path: '/ferramentas/calculadoras',
+  },
+  {
+    id: 'planilhas',
+    title: 'Planilhas',
+    icon: '📊',
+    image: '/images/ferramenta-planilhas.jpg',
+    short: 'Controles para clientes, caixa, estoque, serviços e rotina.',
+    bullets: ['Controle financeiro', 'Clientes', 'Pedidos', 'Estoque'],
+    path: '/ferramentas/planilhas',
+  },
+  {
+    id: 'checklists',
+    title: 'Checklists',
+    icon: '✅',
+    image: '/images/ferramenta-checklists.jpg',
+    short: 'Listas práticas para abrir, organizar e melhorar processos.',
+    bullets: ['Abertura', 'Atendimento', 'Perfil profissional', 'Operação'],
+    path: '/ferramentas/checklists',
+  },
+  {
+    id: 'geradores',
+    title: 'Geradores',
+    icon: '⚙️',
+    image: '/images/ferramenta-geradores.jpg',
+    short: 'Geradores de mensagens, bio, promoções e ideias de conteúdo.',
+    bullets: ['Mensagens', 'Bio profissional', 'Promoções', 'Posts'],
+    path: '/ferramentas/geradores',
+  },
+];

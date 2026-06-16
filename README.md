@@ -1,54 +1,77 @@
-# Central OrganizaPro
+# OrganizaPro Central — Pro V2
 
-Versão inicial da Central OrganizaPro construída a partir da estrutura do projeto antigo, preservando a base de Vercel, APIs, checkout Mercado Pago, Supabase, página de obrigado e liberação de download.
+Versão refatorada e mais profissional da Central OrganizaPro.
 
-## O que já foi alterado
+## O que esta versão melhora
 
-- Marca principal: OrganizaPro
-- Slogan: Soluções para seu negócio
-- Home nova responsiva para PC e celular
-- Áreas separadas:
-  - OrganizaPro Métodos
-  - OrganizaPro Serviços
-  - OrganizaPro Ferramentas
-  - OrganizaPro Produtos
-- Páginas internas:
-  - `/metodos`
+- Remove a dependência de colocar o site inteiro dentro de `main.jsx`.
+- Cria arquitetura com `pages`, `sections`, `components`, `data`, `areas`, `utils` e `styles`.
+- Mantém a OrganizaPro como central de soluções: Serviços, Métodos, Ferramentas e Produtos.
+- Destaca o **Combo Tudo Pro Seu Negócio** por R$400 para venda imediata.
+- Deixa páginas internas prontas para crescer:
   - `/servicos`
+  - `/metodos`
   - `/ferramentas`
   - `/produtos`
   - `/contato`
-  - `/checkout`
-  - `/obrigado`
-- WhatsApp configurado: (12) 98321-6069
-- E-mail: OrganizaPro01@gmail.com
-- Instagram: @organizaprov
+  - `/servicos/site-profissional`
+  - `/metodos/barbeiro`
+  - e outras rotas específicas.
+- Separa textos e dados em `src/data`, facilitando ajustes sem refazer o código.
+- Inclui `vercel.json` para rotas internas funcionarem na Vercel.
 
-## Produtos disponíveis para checkout agora
+## Estrutura principal
 
-- ID 2 — Método Barbeiro Profissional — R$27
-- ID 1 — Método Assistência Técnica — R$27
+```txt
+src/
+├── main.jsx
+├── App.jsx
+├── pages/
+├── sections/
+├── components/
+├── data/
+├── areas/
+├── styles/
+└── utils/
+```
 
-Os métodos Estética Profissional e Alimentação Inteligente aparecem como “Preparando no site” até subir os PDFs finais no projeto ou conectar a entrega via Drive.
+## Onde editar as coisas principais
 
-## Como rodar localmente
+- WhatsApp, e-mail e Instagram: `src/data/siteConfig.js`
+- Menu: `src/data/navigation.js`
+- Combo de R$400: `src/data/combo.js`
+- Serviços: `src/data/services.js`
+- Métodos: `src/data/methods.js`
+- Ferramentas: `src/data/tools.js`
+- Produtos: `src/data/products.js`
+- SEO/títulos das páginas: `src/data/seo.js`
+- Cores e identidade: `src/styles/variables.css`
+
+## Como aplicar no seu projeto atual
+
+1. Faça backup da pasta atual do projeto.
+2. Extraia este ZIP.
+3. Copie `index.html`, `vercel.json`, `package.json` e a pasta `src` para dentro do projeto.
+4. Mantenha suas pastas importantes atuais, como `api`, `public`, `backup`, `publicimages`, checkout e integrações.
+5. Se já existir uma pasta `public/images`, mantenha as imagens. Esta versão usa placeholders caso as imagens não existam.
+6. Abra o GitHub Desktop.
+7. Faça commit.
+8. Clique em Push origin.
+9. Aguarde a Vercel publicar.
+
+## Rodar localmente
 
 ```bash
 npm install
 npm run dev
 ```
 
-## Como publicar
+## Testar build
 
-1. Crie uma cópia/fork do repositório antigo.
-2. Substitua os arquivos do fork por esta versão.
-3. Configure as variáveis na Vercel:
-   - `MERCADO_PAGO_ACCESS_TOKEN`
-   - `SUPABASE_URL`
-   - `SUPABASE_SERVICE_ROLE_KEY`
-   - `SITE_URL`
-4. Faça deploy na Vercel.
+```bash
+npm run build
+```
 
-## Observação importante
+## Observação
 
-As APIs antigas foram preservadas. Antes de vender todos os métodos, revise se o PDF de cada produto está dentro de `public/ebooks` e se o ID do produto está configurado em `api/download.js`.
+Esta versão é uma base premium de estrutura e front-end. As APIs antigas de checkout, Mercado Pago, Supabase e download devem ser mantidas no projeto original, se já existirem.
