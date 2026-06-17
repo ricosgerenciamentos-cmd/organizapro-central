@@ -4,7 +4,7 @@ export const services = [
     title: 'Site profissional',
     eyebrow: 'Presença digital',
     icon: '🌐',
-    image: '/images/servico-site-profissional.jpg',
+    image: '/images/servico-sites.jpg',
     short:
       'Uma página clara para apresentar seu negócio, serviços, fotos, informações e botão de contato.',
     description:
@@ -18,7 +18,7 @@ export const services = [
     title: 'Instagram organizado',
     eyebrow: 'Imagem profissional',
     icon: '📲',
-    image: '/images/servico-instagram.jpg',
+    image: '/images/servico-presenca.jpg',
     short:
       'Bio, destaques, identidade visual e estrutura inicial para passar mais confiança no perfil.',
     description:
@@ -32,7 +32,7 @@ export const services = [
     title: 'WhatsApp Business',
     eyebrow: 'Atendimento',
     icon: '💬',
-    image: '/images/servico-whatsapp-business.jpg',
+    image: '/images/servico-whatsapp.jpg',
     short:
       'Perfil comercial, mensagem automática, descrição, catálogo básico e link de atendimento.',
     description:
@@ -46,7 +46,7 @@ export const services = [
     title: 'Página de vendas',
     eyebrow: 'Oferta clara',
     icon: '🧾',
-    image: '/images/servico-pagina-vendas.jpg',
+    image: '/images/home-servicos.jpg',
     short:
       'Uma página direta para apresentar uma oferta, produto, serviço ou combo do seu negócio.',
     description:
@@ -60,7 +60,7 @@ export const services = [
     title: 'Assistente Virtual',
     eyebrow: 'Suporte operacional',
     icon: '🎧',
-    image: '/images/servico-assistente-virtual.jpg',
+    image: '/images/servico-assistente.jpg',
     short:
       'Atendimento, agenda, mensagens, follow-up e apoio administrativo para sua empresa ganhar tempo.',
     description:

@@ -4,6 +4,7 @@ export const homeChoices = [
     area: 'Serviços',
     icon: '💼',
     path: '/servicos',
+    image: '/images/home-servicos.jpg',
     message:
       'Site, Instagram, WhatsApp e página de vendas para deixar seu negócio mais profissional.',
     cta: 'Ver serviços',
@@ -13,6 +14,7 @@ export const homeChoices = [
     area: 'Métodos',
     icon: '🎓',
     path: '/metodos',
+    image: '/images/metodos-hero.jpg',
     message:
       'Materiais práticos para barbeiros, assistência técnica, delivery, estética e outros negócios.',
     cta: 'Ver métodos',
@@ -22,6 +24,7 @@ export const homeChoices = [
     area: 'Ferramentas',
     icon: '🛠️',
     path: '/ferramentas',
+    image: '/images/home-ferramentas.jpg',
     message:
       'Planilhas, calculadoras, checklists e geradores para organizar o dia a dia.',
     cta: 'Ver ferramentas',
@@ -31,6 +34,7 @@ export const homeChoices = [
     area: 'Produtos',
     icon: '🛍️',
     path: '/produtos',
+    image: '/images/home-produtos.jpg',
     message:
       'Equipamentos, materiais e soluções úteis para empreendedores comprarem melhor.',
     cta: 'Ver produtos',

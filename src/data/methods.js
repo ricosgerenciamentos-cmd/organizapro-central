@@ -4,8 +4,8 @@ export const methods = [
     title: 'Método Barbeiro Profissional',
     status: 'Disponível',
     label: 'Destaque atual',
-    price: 27,
-    image: '/images/metodo-barbeiro.jpg',
+    price: 19,
+    image: '/images/metodos-hero.jpg',
     short:
       'Um método direto para melhorar atendimento, técnica, divulgação, organização e vendas na barbearia.',
     description:
@@ -20,8 +20,8 @@ export const methods = [
     title: 'Método Assistência Técnica',
     status: 'Disponível',
     label: 'Alta procura',
-    price: 27,
-    image: '/images/metodo-assistencia.jpg',
+    price: 23,
+    image: '/images/servico-sites.jpg',
     short:
       'Organização prática para atender melhor, montar estrutura, cobrar certo e crescer na assistência técnica.',
     description:
@@ -37,7 +37,7 @@ export const methods = [
     status: 'Preparando no site',
     label: 'Próximo lançamento',
     price: 27,
-    image: '/images/metodo-delivery.jpg',
+    image: '/images/home-produtos.jpg',
     short:
       'Um caminho prático para organizar operação, cardápio, atendimento e divulgação de delivery.',
     description:
@@ -53,7 +53,7 @@ export const methods = [
     status: 'Preparando no site',
     label: 'Em fila',
     price: 27,
-    image: '/images/metodo-estetica.jpg',
+    image: '/images/servico-presenca.jpg',
     short:
       'Um caminho para profissionais de estética organizarem atendimento, presença digital, vendas e rotina profissional.',
     description:
@@ -69,7 +69,7 @@ export const methods = [
     status: 'Preparando no site',
     label: 'Em construção',
     price: 13,
-    image: '/images/metodo-alimentacao.jpg',
+    image: '/images/produtos-hero.jpg',
     short:
       'Conteúdo prático para organizar rotina, preparo, operação, atendimento e vendas na área de alimentação.',
     description:
